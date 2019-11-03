@@ -1,4 +1,10 @@
 const paths = require("./paths");
+const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent"); // CSS Module의 고유 classname을 만들 때 필요한 옵션
+
+const cssRegex = /\.css$/;
+const cssModuleRegex = /\.module\.css&/;
+const sassRegex = /\.(scss|sass)$/;
+const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 module.exports = {
   mode: "production", // 프로덕션 모드로 설정하여 최적화 옵션들을 활성화
@@ -9,5 +15,12 @@ module.exports = {
     filename: "server.js", // 파일 이름
     chunkFilename: "js/[name].chunk.js", // 청크 파일 이름
     publicPath: paths.servedPath // 정적 파일이 제공될 경로
+  },
+  module: {
+    rules: [
+      {
+        oneOf: []
+      }
+    ]
   }
 };
